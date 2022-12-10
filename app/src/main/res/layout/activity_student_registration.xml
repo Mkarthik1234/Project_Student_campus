@@ -1,115 +1,139 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/profile1"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:clipToOutline="true"
-    android:background="@drawable/get_started_page_layout">
 
-    <ImageView
-        android:id="@+id/img_student_profile"
-        android:layout_width="wrap_content"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/get_started_page_layout"
+    >
+<LinearLayout
+
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/textview_enter"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="300dp"
-        android:layout_marginBottom="-131dp"
-        android:src="@drawable/student_ragistration" />
+        android:orientation="vertical"
+>
 
     <TextView
         android:id="@+id/textview_enter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
-        android:textSize="20sp"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="140dp"
-        android:layout_marginBottom="690dp"
+        android:textAlignment="center"
+        android:layout_gravity="center"
         android:text="Enter student details"
-        android:textColor="#FFFF"/>
+        android:layout_margin="10dp"
+        android:textColor="#FFFF"
+        android:textSize="30sp" />
 
-    <EditText
-        android:id="@+id/edittext_name"
-        android:layout_width="219dp"
-        android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/img_student_profile"
-        android:layout_alignBottom="@+id/textview_enter"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="40dp"
-        android:layout_marginRight="-260dp"
-        android:layout_marginBottom="-126dp"
-        android:background="@drawable/student_registration_edit_text"
-        android:gravity="center_vertical"
-        android:hint="Enter Full Name"
-        android:paddingStart="20dp"
-        android:textColorHint="#000000" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="141dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/student_ragistration" />
+
+        <EditText
+            android:id="@+id/edittext_name"
+            android:layout_width="219dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/student_registration_edit_text"
+            android:gravity="center_vertical"
+            android:hint="Enter Full Name"
+            android:paddingStart="20dp"
+            android:textColorHint="#000000" />
+
+    </LinearLayout>
 
     <EditText
         android:id="@+id/edittext_usn"
         android:layout_width="342dp"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/edittext_name"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="31dp"
-        android:layout_marginRight="-257dp"
-        android:layout_marginBottom="-118dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp"
         android:background="@drawable/student_registration_edit_text"
         android:gravity="center_vertical"
         android:hint="Enter USN"
         android:paddingStart="20dp"
+        android:layout_gravity="center"
         android:textColorHint="#000000" />
 
     <EditText
         android:id="@+id/edittext_mobile"
         android:layout_width="342dp"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/edittext_usn"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="34dp"
-        android:layout_marginRight="-257dp"
-        android:layout_marginBottom="-105dp"
+        android:layout_margin="10dp"
         android:background="@drawable/student_registration_edit_text"
         android:gravity="center_vertical"
         android:hint="Enter Mobile No."
         android:paddingStart="20dp"
+        android:layout_gravity="center"
         android:textColorHint="#000000" />
 
     <EditText
         android:id="@+id/edittext_password"
         android:layout_width="342dp"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/edittext_mobile"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="32dp"
-        android:layout_marginRight="-257dp"
-        android:layout_marginBottom="-103dp"
+        android:layout_margin="10dp"
         android:background="@drawable/student_registration_edit_text"
         android:gravity="center_vertical"
         android:hint="Create password"
+        android:layout_gravity="center"
         android:paddingStart="20dp"
         android:textColorHint="#000000" />
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="679dp"
-        android:layout_below="@+id/edittext_password"
-        android:layout_alignParentBottom="true"
-        android:layout_marginTop="-126dp"
-        android:layout_marginBottom="-298dp"
-        android:src="@drawable/register_student" />
+    <EditText
+        android:id="@+id/edittext_confirm_password_registration"
+        android:layout_width="342dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/student_registration_edit_text"
+        android:gravity="center_vertical"
+        android:hint="Connfirm password"
+        android:layout_gravity="center"
+        android:paddingStart="20dp"
+        android:textColorHint="#000000" />
 
-    <ImageButton
-        android:id="@+id/imgbtn_register"
-        android:layout_width="53dp"
-        android:layout_height="47dp"
-        android:layout_below="@+id/edittext_password"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginTop="294dp"
-        android:layout_marginEnd="179dp"
-        android:layout_marginBottom="0dp"
-        android:src="@drawable/add"
-        android:background="@null"/>
-</RelativeLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_gravity="center"
+        android:layout_height="256dp">
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="409dp"
+            android:layout_height="241dp"
+            android:layout_alignParentBottom="true"
+            android:src="@drawable/register_student"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.971" />
+
+        <ImageButton
+            android:id="@+id/imgbtn_register"
+            android:layout_width="53dp"
+            android:layout_height="47dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="10dp"
+            android:background="@null"
+            android:src="@drawable/add"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.87" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+
+</ScrollView>

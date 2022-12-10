@@ -54,11 +54,10 @@ public class Database extends SQLiteOpenHelper {
             return true;
     }
 
-    public boolean check_student_login(String usn,String pass)
-    {
+    public boolean check_student_login(String usn,String pass) {
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.rawQuery("select * from STUDENT where USN=? and Password=?",new String[] {usn,pass});
-        if (cursor.getCount()>0)
+        Cursor cursor = db.rawQuery("select * from STUDENT where USN=? and Password=?", new String[]{usn, pass});
+        if (cursor.getCount() > 0)
             return true;
         else
             return false;
