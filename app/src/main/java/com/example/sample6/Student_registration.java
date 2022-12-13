@@ -1,29 +1,48 @@
 package com.example.sample6;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.util.Log;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
 
 public class Student_registration extends AppCompatActivity {
 
     EditText usn,name,mob,pass;
     ImageButton regstr;
-    Database db;
+
+    FirebaseAuth auth;
+    FirebaseFirestore fstore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_registration);
 
-        usn = findViewById(R.id.edittext_usn);
-        name = findViewById(R.id.edittext_name);
-        mob = findViewById(R.id.edittext_mobile);
-        pass = findViewById(R.id.edittext_password);
+        usn = findViewById(R.id.edittext_email_stureg);
+        name = findViewById(R.id.edittext_name_stureg);
+        mob = findViewById(R.id.edittext_mobile_stureg);
+        pass = findViewById(R.id.edittext_password_stureg);
         regstr = findViewById(R.id.imgbtn_register);
-        db = new Database(this);
+
+        auth = FirebaseAuth.getInstance();
+        fstore = FirebaseFirestore.getInstance();
+
         regstr.setOnClickListener(view -> {
             String u, n, m, p;
             u = usn.getText().toString();
@@ -34,15 +53,39 @@ public class Student_registration extends AppCompatActivity {
                 Toast.makeText(Student_registration.this, "Fill all the details", Toast.LENGTH_SHORT).show();
             else
             {
-                boolean res = db.register_student(u, n, m, p);
-                if (res)
-                {
-                    Toast.makeText(Student_registration.this, "Registration successful", Toast.LENGTH_SHORT).show();
-                }
-                else
-                {
-                    Toast.makeText(Student_registration.this, "Registration Failed", Toast.LENGTH_SHORT).show();
-                }
+                auth.createUserWithEmailAndPassword(u,p).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+                    @Override
+                    public void onSuccess(AuthResult authResult) {
+                        FirebaseUser usr = auth.getCurrentUser();
+
+                        DocumentReference ref = fstore.collection("Students").document(usr.getUid());
+
+                        HashMap <String,Object> stuinfo = new HashMap<>();
+                        stuinfo.put("Full Name",n);
+                        stuinfo.put("Email",u);
+                        stuinfo.put("Mobile",m);
+                        stuinfo.put("isProfessor","0");
+
+                        ref.set(stuinfo).addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void unused) {
+                                Toast.makeText(Student_registration.this, "registration successful", Toast.LENGTH_SHORT).show();
+                                finish();
+                                startActivity(new Intent(Student_registration.this,Student_registration.class));
+                            }
+                        }).addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                Toast.makeText(Student_registration.this, "registration Failed2", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(Student_registration.this, "registration Failed1", Toast.LENGTH_SHORT).show();
+                    }
+                });
             }
         });
 

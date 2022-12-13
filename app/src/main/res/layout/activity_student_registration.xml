@@ -39,7 +39,7 @@
             android:src="@drawable/student_ragistration" />
 
         <EditText
-            android:id="@+id/edittext_name"
+            android:id="@+id/edittext_name_stureg"
             android:layout_width="219dp"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
@@ -52,20 +52,21 @@
     </LinearLayout>
 
     <EditText
-        android:id="@+id/edittext_usn"
+        android:id="@+id/edittext_email_stureg"
         android:layout_width="342dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="10dp"
         android:background="@drawable/student_registration_edit_text"
         android:gravity="center_vertical"
-        android:hint="Enter USN"
+        android:hint="Enter Email"
         android:paddingStart="20dp"
         android:layout_gravity="center"
-        android:textColorHint="#000000" />
+        android:textColorHint="#000000"
+        android:inputType="textEmailAddress"/>
 
     <EditText
-        android:id="@+id/edittext_mobile"
+        android:id="@+id/edittext_mobile_stureg"
         android:layout_width="342dp"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
@@ -73,23 +74,25 @@
         android:gravity="center_vertical"
         android:hint="Enter Mobile No."
         android:paddingStart="20dp"
+        android:inputType="phone"
         android:layout_gravity="center"
         android:textColorHint="#000000" />
 
     <EditText
-        android:id="@+id/edittext_password"
+        android:id="@+id/edittext_password_stureg"
         android:layout_width="342dp"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:background="@drawable/student_registration_edit_text"
         android:gravity="center_vertical"
         android:hint="Create password"
+        android:inputType="textPassword"
         android:layout_gravity="center"
         android:paddingStart="20dp"
         android:textColorHint="#000000" />
 
     <EditText
-        android:id="@+id/edittext_confirm_password_registration"
+        android:id="@+id/edittext_confirm_password_stureg"
         android:layout_width="342dp"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
