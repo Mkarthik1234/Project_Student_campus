@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -64,7 +65,6 @@ public class professor_login extends AppCompatActivity {
                     auth.signInWithEmailAndPassword(u,p).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                         @Override
                         public void onSuccess(AuthResult authResult) {
-
                             FirebaseUser usr = auth.getCurrentUser();
                             DocumentReference ref = firestore.collection("Professors").document(usr.getUid());
                             ref.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
@@ -73,6 +73,7 @@ public class professor_login extends AppCompatActivity {
                                     if(documentSnapshot.exists() && documentSnapshot.getString("isProfessor").equals("1"))
                                     {
                                         Toast.makeText(professor_login.this, "Login successful", Toast.LENGTH_SHORT).show();
+                                        addtoSharedpreference(documentSnapshot.getString("isProfessor"));
                                         finish();
                                         startActivity(new Intent(professor_login.this,Student_registration.class));
                                     }
@@ -92,6 +93,13 @@ public class professor_login extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    private void addtoSharedpreference(String isP) {
+        SharedPreferences ref = getSharedPreferences("login",MODE_PRIVATE);
+        SharedPreferences.Editor editor = ref.edit();
+        editor.putString("isProfessor",isP);
+        editor.apply();
     }
 
     private void startActivity_professorHome() {

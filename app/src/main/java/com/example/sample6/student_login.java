@@ -61,6 +61,7 @@ public class student_login extends AppCompatActivity {
                                 if(documentSnapshot.exists() && documentSnapshot.getString("isProfessor").equals("0"))
                                 {
                                     Toast.makeText(student_login.this, "Login Successful", Toast.LENGTH_SHORT).show();
+                                    addtoSharedPreferece(documentSnapshot.getString("isProfessor"));
                                     startActivity_studentHome();
                                     finish();
                                 }
@@ -80,6 +81,13 @@ public class student_login extends AppCompatActivity {
                 });
             }
         });
+    }
+
+    private void addtoSharedPreferece(String isP) {
+        SharedPreferences ref = getSharedPreferences("login",MODE_PRIVATE);
+        SharedPreferences.Editor editor = ref.edit();
+        editor.putString("isProfessor",isP);
+        editor.apply();
     }
 
     private void startActivity_studentHome() {
