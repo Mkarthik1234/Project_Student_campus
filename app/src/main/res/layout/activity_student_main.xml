@@ -15,16 +15,18 @@
         android:orientation="horizontal">
 
         <ImageView
+            android:id="@+id/img_time_table_stuhome"
             android:layout_width="115dp"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
             android:src="@drawable/timetable_img" />
+
         <ImageView
+            android:id="@+id/img_subjects_stuhome"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
-            android:src="@drawable/subjects_img"
-            />
+            android:src="@drawable/subjects_img" />
 
     </LinearLayout>
 
@@ -35,11 +37,13 @@
         android:orientation="horizontal">
 
         <ImageView
+            android:id="@+id/img_marks_stuhome"
             android:layout_width="115dp"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
             android:src="@drawable/marks_img" />
         <ImageView
+            android:id="@+id/img_attendense_stuhome"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
