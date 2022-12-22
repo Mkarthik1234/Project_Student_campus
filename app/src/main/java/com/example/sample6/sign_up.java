@@ -28,7 +28,6 @@ public class sign_up extends AppCompatActivity {
     FirebaseAuth auth;
     FirebaseFirestore fstore;
 
-    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,26 +58,17 @@ public class sign_up extends AppCompatActivity {
                         Toast.makeText(sign_up.this, "Please enter correct password", Toast.LENGTH_SHORT).show();
                     else
                     {
-//                        Boolean res = db.register_professor(e,p1);
-//                        if(res == true)
-//                        {
-//                            Toast.makeText(sign_up.this, "Registration Successful", Toast.LENGTH_SHORT).show();
-//                        }
-//                        else
-//                            Toast.makeText(sign_up.this, "Registration Unsuccessful", Toast.LENGTH_SHORT).show();
-
                           auth.createUserWithEmailAndPassword(e,p1).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                               @Override
                               public void onSuccess(AuthResult authResult) {
                                   FirebaseUser usr = auth.getCurrentUser();
 
-                                  DocumentReference dref = fstore.collection("Professors").document(usr.getUid());
+                                  DocumentReference dref = fstore.collection("Admin").document(usr.getUid());
+                                  HashMap <String,Object> admininfo = new HashMap<>();
+                                  admininfo.put("Email",e);
+                                  admininfo.put("isAdmin","1");
 
-                                  HashMap <String,Object> proinfo = new HashMap<>();
-                                  proinfo.put("Email",e);
-                                  proinfo.put("isProfessor","1");
-
-                                  dref.set(proinfo).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                  dref.set(admininfo).addOnSuccessListener(new OnSuccessListener<Void>() {
                                       @Override
                                       public void onSuccess(Void unused) {
                                           Toast.makeText(sign_up.this, "Signup successful", Toast.LENGTH_SHORT).show();

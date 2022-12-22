@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+
+    <item
+        android:id="@+id/home_menu_menubar"
+        android:title="Home"
+        android:icon="@drawable/home_menu_icon"
+        />
+
+    <item
+        android:id="@+id/exit_menu_menubar"
+        android:title="Exit"
+        android:icon="@drawable/exit_menu_icon"
+        />
+
+    </group>
+
+    <group android:checkableBehavior="single">
+
+        <item android:title="Authentication">
+            <menu>
+                <item
+                    android:title="logout"
+                    android:id="@+id/logout_menubar"
+                    android:icon="@drawable/logout_menu_icon"
+                    />
+
+            </menu>
+        </item>
+
+    </group>
+
+</menu>

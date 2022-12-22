@@ -7,8 +7,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 
+import com.google.android.material.imageview.ShapeableImageView;
+
 public class select_user extends AppCompatActivity {
     ImageButton student,professor;
+    ShapeableImageView admin;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -16,6 +19,7 @@ public class select_user extends AppCompatActivity {
 
         student = findViewById(R.id.imgbtn_student);
         professor = findViewById(R.id.imgbtn_professor);
+        admin = findViewById(R.id.imgbtn_admin_userselect);
 
         student.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -27,6 +31,13 @@ public class select_user extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity_professorlogin();
+            }
+        });
+        admin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+             startActivity(new Intent(select_user.this,login_admin.class));
+             finish();
             }
         });
     }

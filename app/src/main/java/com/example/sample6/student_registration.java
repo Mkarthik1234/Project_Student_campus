@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
+import android.telephony.SmsManager;
 import android.util.Log;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -21,9 +21,9 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
 
-public class Student_registration extends AppCompatActivity {
+public class student_registration extends AppCompatActivity {
 
-    EditText usn,name,mob,pass;
+    EditText usn, name, mob, pass;
     ImageButton regstr;
 
     FirebaseAuth auth;
@@ -50,47 +50,48 @@ public class Student_registration extends AppCompatActivity {
             m = mob.getText().toString();
             p = pass.getText().toString();
             if (u.isEmpty() || n.isEmpty() || m.isEmpty() || p.isEmpty())
-                Toast.makeText(Student_registration.this, "Fill all the details", Toast.LENGTH_SHORT).show();
-            else
-            {
-                auth.createUserWithEmailAndPassword(u,p).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+                Toast.makeText(student_registration.this, "Fill all the details", Toast.LENGTH_SHORT).show();
+            else {
+                auth.createUserWithEmailAndPassword(u, p).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                     @Override
                     public void onSuccess(AuthResult authResult) {
                         FirebaseUser usr = auth.getCurrentUser();
 
                         DocumentReference ref = fstore.collection("Students").document(usr.getUid());
 
-                        HashMap <String,Object> stuinfo = new HashMap<>();
-                        stuinfo.put("Full Name",n);
-                        stuinfo.put("Email",u);
-                        stuinfo.put("Mobile",m);
-                        stuinfo.put("isProfessor","0");
-
+                        HashMap<String, Object> stuinfo = new HashMap<>();
+                        stuinfo.put("Full Name", n);
+                        stuinfo.put("Email", u);
+                        stuinfo.put("Mobile", m);
+                        stuinfo.put("isProfessor", "0");
                         ref.set(stuinfo).addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
                             public void onSuccess(Void unused) {
-                                Toast.makeText(Student_registration.this, "registration successful", Toast.LENGTH_SHORT).show();
+                                send_message();
+                                Toast.makeText(student_registration.this, "registration successful", Toast.LENGTH_SHORT).show();
                                 finish();
-                                startActivity(new Intent(Student_registration.this,Student_registration.class));
+                                startActivity(new Intent(student_registration.this, student_registration.class));
                             }
                         }).addOnFailureListener(new OnFailureListener() {
                             @Override
                             public void onFailure(@NonNull Exception e) {
-                                Toast.makeText(Student_registration.this, "registration Failed2", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(student_registration.this, "registration Failed2", Toast.LENGTH_SHORT).show();
                             }
                         });
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(Student_registration.this, "registration Failed1", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(student_registration.this, "registration Failed1", Toast.LENGTH_SHORT).show();
                     }
                 });
             }
         });
-
     }
 
-
-
+    private void send_message() {
+        SmsManager smsManager = SmsManager.getDefault();
+        smsManager.sendTextMessage(mob.getText().toString(), null, "Credentials for Student Portal\n username : " + usn.getText().toString() + " password : " + pass.getText().toString(), null, null);
+        Log.d("inside", "true");
+    }
 }

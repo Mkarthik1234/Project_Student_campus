@@ -5,29 +5,25 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/get_started_page_layout"
-    >
-<LinearLayout
+    android:background="@drawable/get_started_page_layout">
 
+<LinearLayout
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
->
+        android:orientation="vertical">
 
     <TextView
-        android:id="@+id/textview_enter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:textAlignment="center"
         android:layout_gravity="center"
-        android:text="Enter student details"
+        android:text="Enter Student details"
         android:layout_margin="10dp"
         android:textColor="#FFFF"
         android:textSize="30sp" />
-
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -50,6 +46,20 @@
             android:textColorHint="#000000" />
 
     </LinearLayout>
+
+    <EditText
+        android:id="@+id/edittext_usn_stureg"
+        android:layout_width="342dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/student_registration_edit_text"
+        android:gravity="center_vertical"
+        android:hint="Enter USN"
+        android:paddingStart="20dp"
+        android:layout_gravity="center"
+        android:textColorHint="#000000"
+        android:inputType="textEmailAddress"/>
 
     <EditText
         android:id="@+id/edittext_email_stureg"
@@ -79,14 +89,26 @@
         android:textColorHint="#000000" />
 
     <EditText
+        android:id="@+id/edittext_address_stureg"
+        android:layout_width="342dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/student_registration_edit_text"
+        android:gravity="center_vertical"
+        android:hint="Address"
+        android:inputType="textMultiLine"
+        android:layout_gravity="center"
+        android:paddingStart="20dp"
+        android:textColorHint="#000000" />
+
+    <EditText
         android:id="@+id/edittext_password_stureg"
         android:layout_width="342dp"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:background="@drawable/student_registration_edit_text"
         android:gravity="center_vertical"
-        android:hint="Create password"
-        android:inputType="textPassword"
+        android:hint="Create Password"
         android:layout_gravity="center"
         android:paddingStart="20dp"
         android:textColorHint="#000000" />

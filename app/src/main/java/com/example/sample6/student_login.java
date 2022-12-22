@@ -34,9 +34,9 @@ public class student_login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_login);
 
-        username = findViewById(R.id.editText_username_student);
-        pass = findViewById(R.id.edittext_password_student);
-        login = findViewById(R.id.btn_login_student);
+        username = findViewById(R.id.edittext_username_stulogin);
+        pass = findViewById(R.id.edittext_password_stulogin);
+        login = findViewById(R.id.btn_login_stulogin);
 
         auth = FirebaseAuth.getInstance();
         fstore = FirebaseFirestore.getInstance();
@@ -91,7 +91,7 @@ public class student_login extends AppCompatActivity {
     }
 
     private void startActivity_studentHome() {
-        Intent intent = new Intent(this.getApplicationContext(),student_main.class);
+        Intent intent = new Intent(this.getApplicationContext(),Marks.class);
         startActivity(intent);
     }
 }

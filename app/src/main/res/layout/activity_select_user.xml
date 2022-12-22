@@ -27,13 +27,14 @@
         android:textColor="#FFFFFF"
         android:textSize="30sp" />
 
-    <ImageButton
+    <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/imgbtn_admin_userselect"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:background="@drawable/user_professor"
         android:layout_gravity="center"
-        />
+        android:background="@drawable/admin_profile"
+        app:shapeAppearanceOverlay="@style/circular"
+         />
 
     <TextView
         android:id="@+id/textview_admin_userselect"

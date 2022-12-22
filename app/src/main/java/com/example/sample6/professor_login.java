@@ -23,32 +23,24 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 public class professor_login extends AppCompatActivity {
     Button login;
-    TextView signup;
     EditText username,password;
 
     FirebaseAuth auth;
     FirebaseFirestore firestore;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_professor_login);
 
-        login = findViewById(R.id.btn_login);
-        signup = findViewById(R.id.textView_signup);
-        username = findViewById(R.id.edittext_username);
-        password = findViewById(R.id.edittext_password);
+        login = findViewById(R.id.btn_login_prologin);
+        username = findViewById(R.id.edittext_username_prologin);
+        password = findViewById(R.id.edittext_password_prologin);
 
         auth = FirebaseAuth.getInstance();
         firestore = FirebaseFirestore.getInstance();
 
-        signup.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity_professorHome();
-            }
-        });
+
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,7 +67,7 @@ public class professor_login extends AppCompatActivity {
                                         Toast.makeText(professor_login.this, "Login successful", Toast.LENGTH_SHORT).show();
                                         addtoSharedpreference(documentSnapshot.getString("isProfessor"));
                                         finish();
-                                        startActivity(new Intent(professor_login.this,Student_registration.class));
+                                        startActivity_professorHome();
                                     }
                                     else
                                     {
@@ -103,12 +95,12 @@ public class professor_login extends AppCompatActivity {
     }
 
     private void startActivity_professorHome() {
-        Intent intent = new Intent(this.getApplicationContext(),sign_up.class);
+        Intent intent = new Intent(this.getApplicationContext(),professor_main.class);
         startActivity(intent);
     }
 
     private void startActivity_studentRegistration() {
-        Intent intent = new Intent(this.getApplicationContext(),Student_registration.class);
+        Intent intent = new Intent(this.getApplicationContext(),student_main.class);
         startActivity(intent);
     }
 }
