@@ -3,7 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.sample6">
 
-    <uses-permission android:name="android.permission.SEND_SMS"/>
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -15,6 +18,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Sample6"
         tools:targetApi="31">
+        <activity
+            android:name=".student_attendenseView"
+            android:exported="false" />
+        <activity
+            android:name=".student_attendense_subjectView"
+            android:exported="false" />
+        <activity
+            android:name=".student_subjects"
+            android:exported="false" />
         <activity
             android:name=".professor_registration"
             android:exported="false" />
@@ -28,7 +40,7 @@
             android:name=".login_admin"
             android:exported="false" />
         <activity
-            android:name=".time_table"
+            android:name=".student_time_table"
             android:exported="false" />
         <activity
             android:name=".professor_main"

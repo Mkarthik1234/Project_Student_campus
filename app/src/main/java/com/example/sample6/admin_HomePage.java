@@ -7,21 +7,34 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.RequestBuilder;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class admin_HomePage extends AppCompatActivity {
     FirebaseAuth auth;
+    FirebaseFirestore fstore;
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     androidx.appcompat.widget.Toolbar toolbar;
 
     ImageButton sturegister, proregister;
+    ImageView profile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,10 +48,15 @@ public class admin_HomePage extends AppCompatActivity {
         sturegister = findViewById(R.id.imageButton_student_adminhome);
         proregister = findViewById(R.id.imageButton_professor_adminhome);
 
+
         auth = FirebaseAuth.getInstance();
+        fstore = FirebaseFirestore.getInstance();
 
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(admin_HomePage.this, drawerLayout, toolbar, R.string.open_drawer, R.string.close_drawer);
+        FirebaseUser user = auth.getCurrentUser();
+        DocumentReference ref = fstore.collection("Students").document(user.getUid());
 
+
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.open_drawer, R.string.close_drawer);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
 
@@ -86,7 +104,21 @@ public class admin_HomePage extends AppCompatActivity {
         navigationView.bringToFront();
     }
 
-
-
-
+//    @Override
+//    protected void onStart() {
+//        FirebaseUser user = auth.getCurrentUser();
+//        DocumentReference ref = fstore.collection("Admin").document(user.getUid());
+//        View header = navigationView.getHeaderView(0);
+//        profile =(ImageView) header.findViewById(R.id.profile_image_menuBarHeader);
+//        ref.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+//            @Override
+//            public void onSuccess(DocumentSnapshot documentSnapshot) {
+//                if(documentSnapshot.exists() && !documentSnapshot.getString("profile_image").isEmpty())
+//                {
+//                    Glide.with(admin_HomePage.this).load(documentSnapshot.getString("profile_image")).timeout(6000).into(profile);
+//                }
+//            }
+//        });
+//        super.onStart();
+//    }
 }

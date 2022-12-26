@@ -3,12 +3,12 @@
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/get_started_page_layout">
 
     <LinearLayout
-        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
@@ -25,14 +25,34 @@
             android:textColor="#FFFF"
             android:textSize="30sp" />
 
-        <LinearLayout
+
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="105dp">
 
             <ImageView
+                android:id="@+id/imageView_profile_profreg"
                 android:layout_width="141dp"
                 android:layout_height="wrap_content"
-                android:src="@drawable/student_ragistration" />
+                android:src="@drawable/student_ragistration"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/edittext_name_proreg"
+                app:layout_constraintHorizontal_bias="0.157"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.3" />
+
+            <ImageView
+                android:id="@+id/add_profileimage_proreg"
+                android:layout_width="62dp"
+                android:layout_height="38dp"
+                android:src="@drawable/add_profile_pic"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/imageView_profile_profreg"
+                app:layout_constraintHorizontal_bias="0.913"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/imageView_profile_profreg"
+                app:layout_constraintVertical_bias="1.0" />
 
             <EditText
                 android:id="@+id/edittext_name_proreg"
@@ -43,10 +63,15 @@
                 android:gravity="center_vertical"
                 android:hint="Enter Full Name"
                 android:paddingStart="20dp"
-                android:textColorHint="#000000" />
+                android:textColorHint="#000000"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.843"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.256" />
 
-        </LinearLayout>
-
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <EditText
             android:id="@+id/edittext_email_proreg"

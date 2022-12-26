@@ -8,6 +8,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.provider.ContactsContract;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -45,6 +46,7 @@ public class student_login extends AppCompatActivity {
             String u,p;
             u = username.getText().toString();
             p = pass.getText().toString();
+            Log.d("email",u);
 
             if(u.isEmpty() || p.isEmpty())
                 Toast.makeText(student_login.this, "Enter all fields", Toast.LENGTH_SHORT).show();
@@ -91,7 +93,7 @@ public class student_login extends AppCompatActivity {
     }
 
     private void startActivity_studentHome() {
-        Intent intent = new Intent(this.getApplicationContext(),Marks.class);
+        Intent intent = new Intent(this.getApplicationContext(),student_main.class);
         startActivity(intent);
     }
 }

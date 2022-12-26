@@ -11,17 +11,27 @@ import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     Button start;
+    TextView welcome,to;
+
+    private static int splash_timeout=5000;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        welcome = findViewById(R.id.welcome_textView);
+        to = findViewById(R.id.welcome_to_textView);
+
 
         new Handler().postDelayed(new Runnable() {
             @Override
@@ -40,8 +50,14 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent= new Intent(getApplicationContext(),select_user.class);
                 startActivity(intent);
+                overridePendingTransition(R.anim.left_slide_in,R.anim.right_slide_out);
             }
         });
+
+
+        Animation myanimation = AnimationUtils.loadAnimation(MainActivity.this,R.anim.animation1);
+        welcome.startAnimation(myanimation);
+
 
     }
 

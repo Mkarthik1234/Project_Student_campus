@@ -9,15 +9,18 @@
     >
 
     <ImageView
+        android:id="@+id/profile_image_menuBarHeader"
         android:layout_width="289dp"
         android:layout_height="170dp"
+        android:layout_marginTop="20dp"
         android:src="@drawable/admin_profile" />
 
     <TextView
+        android:id="@+id/profileName_menuBarHeader"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Profile"
-        android:textSize="50dp"
+        android:textSize="45dp"
         android:textColor="@color/white"/>
 
 

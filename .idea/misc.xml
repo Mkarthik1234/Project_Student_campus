@@ -4,6 +4,8 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/5 sem/App development/project6/app/src/main/res/drawable-v24/get_started_btn.xml" value="0.2025" />
+        <entry key="..\:/5 sem/App development/project6/app/src/main/res/drawable/add_profile_pic.xml" value="0.1695" />
+        <entry key="..\:/5 sem/App development/project6/app/src/main/res/drawable/download_icon.xml" value="0.243" />
         <entry key="..\:/5 sem/App development/project6/app/src/main/res/drawable/get_started_page_layout.xml" value="0.2085" />
         <entry key="..\:/5 sem/App development/project6/app/src/main/res/drawable/marks_button_layout.xml" value="0.176" />
         <entry key="..\:/5 sem/App development/project6/app/src/main/res/drawable/shape_to_profile_images.xml" value="0.1855" />
@@ -13,7 +15,7 @@
         <entry key="..\:/5 sem/App development/project6/app/src/main/res/drawable/xyz.xml" value="0.169" />
         <entry key="..\:/5 sem/App development/project6/app/src/main/res/layout-v24/activity_admin_home.xml" value="0.23697916666666666" />
         <entry key="..\:/5 sem/App development/project6/app/src/main/res/layout/activity_admin_home.xml" value="0.23697916666666666" />
-        <entry key="..\:/5 sem/App development/project6/app/src/main/res/layout/activity_admin_home_page.xml" value="0.16145833333333334" />
+        <entry key="..\:/5 sem/App development/project6/app/src/main/res/layout/activity_admin_home_page.xml" value="0.128" />
         <entry key="..\:/5 sem/App development/project6/app/src/main/res/layout/activity_login_admin.xml" value="0.23697916666666666" />
         <entry key="..\:/5 sem/App development/project6/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/5 sem/App development/project6/app/src/main/res/layout/activity_marks.xml" value="0.23697916666666666" />
@@ -23,15 +25,23 @@
         <entry key="..\:/5 sem/App development/project6/app/src/main/res/layout/activity_select_user.xml" value="0.2" />
         <entry key="..\:/5 sem/App development/project6/app/src/main/res/layout/activity_sign_up.xml" value="0.2" />
         <entry key="..\:/5 sem/App development/project6/app/src/main/res/layout/activity_signup_admin.xml" value="0.11666666666666667" />
+        <entry key="..\:/5 sem/App development/project6/app/src/main/res/layout/activity_student_attendense_subject_view.xml" value="0.1859375" />
+        <entry key="..\:/5 sem/App development/project6/app/src/main/res/layout/activity_student_attendense_view.xml" value="0.2" />
         <entry key="..\:/5 sem/App development/project6/app/src/main/res/layout/activity_student_login.xml" value="0.2" />
-        <entry key="..\:/5 sem/App development/project6/app/src/main/res/layout/activity_student_main.xml" value="0.21510416666666668" />
+        <entry key="..\:/5 sem/App development/project6/app/src/main/res/layout/activity_student_main.xml" value="0.176" />
         <entry key="..\:/5 sem/App development/project6/app/src/main/res/layout/activity_student_registration.xml" value="0.176" />
+        <entry key="..\:/5 sem/App development/project6/app/src/main/res/layout/activity_student_subjects.xml" value="0.23697916666666666" />
+        <entry key="..\:/5 sem/App development/project6/app/src/main/res/layout/activity_student_time_table.xml" value="0.152" />
         <entry key="..\:/5 sem/App development/project6/app/src/main/res/layout/activity_time_table.xml" value="0.17604166666666668" />
+        <entry key="..\:/5 sem/App development/project6/app/src/main/res/layout/fragment_class_admin.xml" value="0.23697916666666666" />
         <entry key="..\:/5 sem/App development/project6/app/src/main/res/layout/professor_main.xml" value="0.18802083333333333" />
         <entry key="..\:/5 sem/App development/project6/app/src/main/res/layout/professor_registration.xml" value="0.2203125" />
         <entry key="..\:/5 sem/App development/project6/app/src/main/res/layout/profile_menu_bar.xml" value="0.176953125" />
         <entry key="..\:/5 sem/App development/project6/app/src/main/res/layout/side_menu_layout.xml" value="0.23697916666666666" />
         <entry key="..\:/5 sem/App development/project6/app/src/main/res/layout/single_card_time_table.xml" value="0.264" />
+        <entry key="..\:/5 sem/App development/project6/app/src/main/res/layout/singleitem_attendensesubject.xml" value="0.18489583333333334" />
+        <entry key="..\:/5 sem/App development/project6/app/src/main/res/layout/singleitem_attendenseview.xml" value="0.18489583333333334" />
+        <entry key="..\:/5 sem/App development/project6/app/src/main/res/layout/singleitem_stusubjects.xml" value="0.19444444444444445" />
         <entry key="..\:/5 sem/App development/project6/app/src/main/res/menu/option_menu.xml" value="0.13541666666666666" />
         <entry key="..\:/5 sem/App development/project6/app/src/main/res/menu/side_menu_bar.xml" value="0.23697916666666666" />
       </map>

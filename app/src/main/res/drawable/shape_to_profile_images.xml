@@ -1,3 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources >
-    </resources>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+    <style android:name="circular">
+        <item android:name="cornerSize">50%</item>
+    </style>
+</resources>
