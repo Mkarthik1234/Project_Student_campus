@@ -54,10 +54,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
         Animation myanimation = AnimationUtils.loadAnimation(MainActivity.this,R.anim.animation1);
         welcome.startAnimation(myanimation);
-
 
     }
 
