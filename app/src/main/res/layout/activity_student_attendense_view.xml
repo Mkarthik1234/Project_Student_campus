@@ -21,8 +21,8 @@
         android:id="@+id/table1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@android:color/white"
-        android:layout_margin="60dp">
+        android:layout_margin="60dp"
+        android:background="@android:color/white">
 
         <TableRow
             android:layout_height="wrap_content"
@@ -45,7 +45,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_weight="6"
                 android:padding="10sp"
-                android:text="Absent"
+                android:text="Present/Absent"
                 android:textAlignment="center"
                 android:textColor="@color/white"
                 android:textSize="15sp" />
@@ -54,8 +54,11 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView_stuattendenseView"
             android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:background="@color/white"
-            android:layout_height="wrap_content" />
+            android:scrollbars="vertical"
+            android:scrollbarTrackVertical="@color/grey"
+            />
 
     </TableLayout>
 

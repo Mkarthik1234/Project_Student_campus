@@ -6,8 +6,9 @@
     android:layout_height="wrap_content"
     android:stretchColumns="1,2,3"
     android:layout_margin="10dp"
-    android:background="@color/white"
-    >
+    android:layout_gravity="start"
+    android:background="@color/white">
+
 
     <TableRow
         android:layout_height="wrap_content"
@@ -36,7 +37,7 @@
             android:textFontWeight="2"
             android:textAlignment="center"
             android:textColor="@color/black"
-            android:textSize="15dp" />
+            android:textSize="15dp"/>
 
     </TableRow>
 

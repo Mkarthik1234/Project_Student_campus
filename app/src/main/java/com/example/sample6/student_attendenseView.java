@@ -22,6 +22,7 @@ import com.google.firebase.firestore.FieldPath;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
@@ -63,12 +64,12 @@ public class student_attendenseView extends AppCompatActivity {
 
         recyclerView.setAdapter(adapter);
 
-        display_data();
+        display_data2();
 
 
     }
 
-    private int display_data() {
+    private void display_data() {
         fstore = FirebaseFirestore.getInstance();
         auth = FirebaseAuth.getInstance();
 
@@ -143,6 +144,54 @@ public class student_attendenseView extends AppCompatActivity {
                     }
 
                 });
-       return NUMBER_OF_CLASSES-NUMBER_OF_ADAYS;
+    }
+
+    public  void display_data2()
+    {
+
+        fstore = FirebaseFirestore.getInstance();
+        auth = FirebaseAuth.getInstance();
+
+        user = auth.getCurrentUser().getUid();
+
+        CollectionReference ref = fstore.collection("Class").document("Course").collection("subjects");
+        ref.get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+            @Override
+            public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                for(QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots)
+                {
+                    if(documentSnapshot.get("name").equals(SUBNAME))
+                    {
+                        String sub_id;
+                        sub_id = documentSnapshot.getId().toString();
+                        Log.d("SUB ID",sub_id);
+
+                        CollectionReference reference = fstore.collection("Class").document("Course").collection("subjects").document(sub_id).collection("Attendense");
+                        reference.get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                            @Override
+                            public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                                for(QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots)
+                                {
+                                    NUMBER_OF_CLASSES = queryDocumentSnapshots.size();
+                                    String ID = documentSnapshot.getId().toString();
+                                    Log.d("date",ID);
+                                    ArrayList a = (ArrayList) documentSnapshot.get("Absent");
+                                    if(a.contains(user))
+                                    {
+                                        date[count1++] = ID;
+                                        absent[count2++] = "Absent";
+                                        NUMBER_OF_ADAYS = count2;
+                                    }
+                                }
+                            }
+                        });
+                    }
+                }
+                Log.d("count1", Integer.toString(NUMBER_OF_ADAYS));
+                Log.d("countClass1", Integer.toString(NUMBER_OF_CLASSES));
+            }
+        });
+        Log.d("count2", Integer.toString(NUMBER_OF_ADAYS));
+        Log.d("countClass2", Integer.toString(NUMBER_OF_CLASSES));
     }
 }
